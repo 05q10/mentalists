@@ -8,12 +8,12 @@ const Workspace = () => {
 
   return (
     <div className="relative w-full h-screen flex justify-center items-center">
-      {/* Sketchfab Model */}
+      {/* Sketchfab Model with Autoplay */}
       <iframe
         title="My Workspace"
-        className="w-[800px] h-[600px] border-none"
+        className="absolute top-0 left-0 w-full h-full border-none"
         allowFullScreen
-        src="https://sketchfab.com/models/bde6b4dc20b74b169d27e0875cee5b6e/embed"
+        src="https://sketchfab.com/models/bde6b4dc20b74b169d27e0875cee5b6e/embed?autostart=1"
       ></iframe>
 
       {/* Clickable Areas */}
