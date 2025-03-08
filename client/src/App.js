@@ -52,6 +52,7 @@ const RoutesWeb = () => {
         <Route path="/money" element={<Money />} />
         <Route path="/user" element={<User />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/mentalists" element={<Landing />} />
       </Routes>
       {/* {!isAdminRoute && <Footer />}       Conditionally render Footer */}
       {!hideLayout && <Footer />}
