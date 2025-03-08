@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, Search, ChevronDown, User, Settings, LogOut, X } from "lucide-react";
+import img1 from "../img/logo.png";
 
 const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Left Section: Logo & Website Name */}
         <div className="flex items-center space-x-3">
-          <img src="https://via.placeholder.com/40" alt="Logo" className="w-10 h-10 rounded-full" />
+          <img src={img1} alt="Logo" className="w-10 h-10 rounded-full" />
           <h1 className="text-2xl font-bold">GigWiz</h1>
         </div>
 

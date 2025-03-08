@@ -120,9 +120,9 @@ const Community = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCarouselPositions((prev) => [
-        (prev[0] + 0.05) % Math.max(filteredGigs.length - 3, 1),
-        (prev[1] + 0.05) % Math.max(filteredGigs.length - 3, 1),
-        (prev[2] + 0.05) % Math.max(filteredGigs.length - 3, 1)
+        (prev[0] + 0.05) % Math.max(filteredGigs.length - 2, 1),
+        (prev[1] + 0.05) % Math.max(filteredGigs.length - 2, 1),
+        (prev[2] + 0.05) % Math.max(filteredGigs.length - 2, 1)
       ]);
     }, 150); // Increased interval time for smoother motion
   
