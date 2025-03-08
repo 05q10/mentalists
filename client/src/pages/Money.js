@@ -5,6 +5,8 @@ import { GiShakingHands } from "react-icons/gi";
 import { FaFileContract } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
 import { MdHome } from "react-icons/md";
+import { AiOutlineStock } from "react-icons/ai";
+
 
 const Money = () => {
   const navigate = useNavigate();
@@ -47,6 +49,12 @@ const Money = () => {
       label: "GigBenefits",
       path: "/benefits",
       icon: <FaMoneyBillTrendUp className="h-6 w-6" />,
+    },
+    {
+      id: "GigRate",
+      label: "GigRate",
+      path: "/rate",
+      icon: <AiOutlineStock className="h-6 w-6" />,
     },
     // {
     //   id: 'transactions',
