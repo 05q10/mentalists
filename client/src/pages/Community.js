@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Plus, Check } from 'lucide-react';
+import { Search, Plus, Check, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Community = () => {
+  const navigate = useNavigate();
+  
   // Sample data for gig opportunities
   const [allGigs, setAllGigs] = useState([
     {
@@ -10,7 +13,8 @@ const Community = () => {
       place: "Remote",
       time: "2-3 weeks",
       category: "coding",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/website-development"
     },
     {
       id: 2,
@@ -18,7 +22,8 @@ const Community = () => {
       place: "New York",
       time: "5 days",
       category: "design",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/logo-design"
     },
     {
       id: 3,
@@ -26,7 +31,8 @@ const Community = () => {
       place: "Remote",
       time: "Ongoing",
       category: "writing",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/content-writing"
     },
     {
       id: 4,
@@ -34,7 +40,8 @@ const Community = () => {
       place: "Los Angeles",
       time: "1 week",
       category: "media",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/video-editing"
     },
     {
       id: 5,
@@ -42,7 +49,8 @@ const Community = () => {
       place: "Chicago",
       time: "3 days",
       category: "coding",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/data-analysis"
     },
     {
       id: 6,
@@ -50,7 +58,8 @@ const Community = () => {
       place: "Remote",
       time: "Weekend",
       category: "coding",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/app-testing"
     },
     {
       id: 7,
@@ -58,7 +67,8 @@ const Community = () => {
       place: "Austin",
       time: "Monthly",
       category: "marketing",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/social-media"
     },
     {
       id: 8,
@@ -66,7 +76,8 @@ const Community = () => {
       place: "Miami",
       time: "1 day",
       category: "media",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/photography"
     },
     {
       id: 9,
@@ -74,7 +85,8 @@ const Community = () => {
       place: "Remote",
       time: "Flexible",
       category: "writing",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/transcription"
     },
     {
       id: 10,
@@ -82,7 +94,8 @@ const Community = () => {
       place: "Seattle",
       time: "2 weeks",
       category: "design",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/uiux-design"
     },
     {
       id: 11,
@@ -90,7 +103,8 @@ const Community = () => {
       place: "Remote",
       time: "3 days",
       category: "writing",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/copywriting"
     },
     {
       id: 12,
@@ -98,14 +112,14 @@ const Community = () => {
       place: "Boston",
       time: "Weekend",
       category: "media",
-      image: "/api/placeholder/300/200"
+      image: "/api/placeholder/300/200",
+      route: "/gigs/event-photography"
     }
   ]);
   
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredGigs, setFilteredGigs] = useState(allGigs);
   const [favorites, setFavorites] = useState([]);
-  const [carouselPositions, setCarouselPositions] = useState([0, 0, 0]);
   
   // Filter gigs based on search term
   useEffect(() => {
@@ -117,21 +131,9 @@ const Community = () => {
     setFilteredGigs(filtered);
   }, [searchTerm, allGigs]);
   
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCarouselPositions((prev) => [
-        (prev[0] + 0.05) % Math.max(filteredGigs.length - 2, 1),
-        (prev[1] + 0.05) % Math.max(filteredGigs.length - 2, 1),
-        (prev[2] + 0.05) % Math.max(filteredGigs.length - 2, 1)
-      ]);
-    }, 150); // Increased interval time for smoother motion
-  
-    return () => clearInterval(interval);
-  }, [filteredGigs.length]);
-  
-  
   // Toggle favorite status
-  const toggleFavorite = (id) => {
+  const toggleFavorite = (e, id) => {
+    e.stopPropagation(); // Prevent navigation when clicking favorite button
     if (favorites.includes(id)) {
       setFavorites(favorites.filter(favId => favId !== id));
     } else {
@@ -139,10 +141,14 @@ const Community = () => {
     }
   };
   
+  // Navigate to gig details page
+  const navigateToGig = (route) => {
+    navigate(route);
+  };
+  
   // Group gigs into columns
-  const getColumnGigs = (columnIndex) => {
-    const startIdx = Math.floor(carouselPositions[columnIndex]);
-    return filteredGigs.slice(startIdx, startIdx + 5);
+  const getColumnGigs = (startIdx, count) => {
+    return filteredGigs.slice(startIdx, startIdx + count);
   };
   
   return (
@@ -168,7 +174,7 @@ const Community = () => {
           </div>
         </div>
         
-        {/* Carousels Container */}
+        {/* Columns Container */}
         <div className="flex space-x-6 px-4">
           {/* Column 1 */}
           <div className="w-1/3 bg-purple-50 rounded-lg p-4 shadow-lg" style={{
@@ -176,22 +182,16 @@ const Community = () => {
             borderTop: '4px solid #a78bfa'
           }}>
             <h2 className="text-xl font-semibold mb-6 text-purple-700">Popular Gigs</h2>
-            <div 
-  className="space-y-6 transition-transform duration-500 ease-linear"
-  style={{ 
-    transform: `translateY(-${carouselPositions[0] * 15}px)`, 
-    height: '70vh',
-    overflow: 'hidden'
-  }}
->
-
-              {getColumnGigs(0).map(gig => (
+            <div className="space-y-6 overflow-y-auto" style={{ maxHeight: '70vh' }}>
+              {getColumnGigs(0, 4).map(gig => (
                 <div 
                   key={gig.id} 
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                   style={{
-                    borderLeft: '3px solid #a78bfa'
+                    borderLeft: '3px solid #a78bfa',
+                    transition: 'all 0.3s ease'
                   }}
+                  onClick={() => navigateToGig(gig.route)}
                 >
                   <img src={gig.image} alt={gig.name} className="w-full h-40 object-cover" />
                   <div className="p-4 flex justify-between items-start">
@@ -200,15 +200,26 @@ const Community = () => {
                       <p className="text-sm text-gray-600">{gig.place}</p>
                       <p className="text-xs text-gray-500 mt-1">{gig.time}</p>
                     </div>
-                    <button 
-                      onClick={() => toggleFavorite(gig.id)}
-                      className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
-                    >
-                      {favorites.includes(gig.id) ? 
-                        <Check size={18} className="text-purple-600" /> : 
-                        <Plus size={18} className="text-purple-600" />
-                      }
-                    </button>
+                    <div className="flex space-x-2">
+                      <button 
+                        onClick={(e) => toggleFavorite(e, gig.id)}
+                        className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
+                      >
+                        {favorites.includes(gig.id) ? 
+                          <Check size={18} className="text-purple-600" /> : 
+                          <Plus size={18} className="text-purple-600" />
+                        }
+                      </button>
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigateToGig(gig.route);
+                        }}
+                        className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 transition-colors duration-300"
+                      >
+                        <ArrowRight size={18} className="text-purple-600" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -221,21 +232,16 @@ const Community = () => {
             borderTop: '4px solid #9061f9'
           }}>
             <h2 className="text-xl font-semibold mb-6 text-purple-700">Recent Opportunities</h2>
-            <div 
-              className="space-y-6 transition-all duration-1000 ease-in-out" 
-              style={{ 
-                transform: `translateY(-${carouselPositions[1] * 15}px)`,
-                height: '70vh',
-                overflow: 'hidden'
-              }}
-            >
-              {getColumnGigs(1).map(gig => (
+            <div className="space-y-6 overflow-y-auto" style={{ maxHeight: '70vh' }}>
+              {getColumnGigs(4, 4).map(gig => (
                 <div 
                   key={gig.id} 
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                   style={{
-                    borderLeft: '3px solid #9061f9'
+                    borderLeft: '3px solid #9061f9',
+                    transition: 'all 0.3s ease'
                   }}
+                  onClick={() => navigateToGig(gig.route)}
                 >
                   <img src={gig.image} alt={gig.name} className="w-full h-40 object-cover" />
                   <div className="p-4 flex justify-between items-start">
@@ -244,15 +250,26 @@ const Community = () => {
                       <p className="text-sm text-gray-600">{gig.place}</p>
                       <p className="text-xs text-gray-500 mt-1">{gig.time}</p>
                     </div>
-                    <button 
-                      onClick={() => toggleFavorite(gig.id)}
-                      className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
-                    >
-                      {favorites.includes(gig.id) ? 
-                        <Check size={18} className="text-purple-600" /> : 
-                        <Plus size={18} className="text-purple-600" />
-                      }
-                    </button>
+                    <div className="flex space-x-2">
+                      <button 
+                        onClick={(e) => toggleFavorite(e, gig.id)}
+                        className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
+                      >
+                        {favorites.includes(gig.id) ? 
+                          <Check size={18} className="text-purple-600" /> : 
+                          <Plus size={18} className="text-purple-600" />
+                        }
+                      </button>
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigateToGig(gig.route);
+                        }}
+                        className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 transition-colors duration-300"
+                      >
+                        <ArrowRight size={18} className="text-purple-600" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -265,21 +282,16 @@ const Community = () => {
             borderTop: '4px solid #7c3aed'
           }}>
             <h2 className="text-xl font-semibold mb-6 text-purple-700">Featured Gigs</h2>
-            <div 
-              className="space-y-3 transition-all duration-1000 ease-in-out" 
-              style={{ 
-                transform: `translateY(-${carouselPositions[2] * 15}px)`,
-                height: '70vh',
-                overflow: 'hidden'
-              }}
-            >
-              {getColumnGigs(2).map(gig => (
+            <div className="space-y-6 overflow-y-auto" style={{ maxHeight: '70vh' }}>
+              {getColumnGigs(8, 4).map(gig => (
                 <div 
                   key={gig.id} 
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                   style={{
-                    borderLeft: '3px solid #7c3aed'
+                    borderLeft: '3px solid #7c3aed',
+                    transition: 'all 0.3s ease'
                   }}
+                  onClick={() => navigateToGig(gig.route)}
                 >
                   <img src={gig.image} alt={gig.name} className="w-full h-40 object-cover" />
                   <div className="p-4 flex justify-between items-start">
@@ -288,15 +300,26 @@ const Community = () => {
                       <p className="text-sm text-gray-600">{gig.place}</p>
                       <p className="text-xs text-gray-500 mt-1">{gig.time}</p>
                     </div>
-                    <button 
-                      onClick={() => toggleFavorite(gig.id)}
-                      className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
-                    >
-                      {favorites.includes(gig.id) ? 
-                        <Check size={18} className="text-purple-600" /> : 
-                        <Plus size={18} className="text-purple-600" />
-                      }
-                    </button>
+                    <div className="flex space-x-2">
+                      <button 
+                        onClick={(e) => toggleFavorite(e, gig.id)}
+                        className={`p-2 rounded-full transition-colors duration-300 ${favorites.includes(gig.id) ? 'bg-purple-100 hover:bg-purple-200' : 'bg-gray-100 hover:bg-gray-200'}`}
+                      >
+                        {favorites.includes(gig.id) ? 
+                          <Check size={18} className="text-purple-600" /> : 
+                          <Plus size={18} className="text-purple-600" />
+                        }
+                      </button>
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigateToGig(gig.route);
+                        }}
+                        className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 transition-colors duration-300"
+                      >
+                        <ArrowRight size={18} className="text-purple-600" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
