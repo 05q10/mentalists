@@ -3,7 +3,7 @@ import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2 mb-20">
+    <footer className="bg-gradient-to-r from-purple-400 text-white py-2 mb-20">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
         {/* Left Section: Privacy & Legal */}
         <div className="mb-2 md:mb-0 text-center md:text-left">

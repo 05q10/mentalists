@@ -6,7 +6,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 shadow-md">
+    <header className="bg-gradient-to-r from-purple-400 text-white py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-6">
         {/* Left Section: Logo & Website Name */}
         <div className="flex items-center space-x-3">
