@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FaCalculator } from "react-icons/fa6"
+import { FaUsers } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
+import { IoBarChartSharp } from "react-icons/io5"
+import { FaLongArrowAltRight } from "react-icons/fa";
+
+
 // import {
   // IconCalculator,
 //   IconUsers,
@@ -16,7 +23,7 @@ export function HomePage() {
       title: "Rate Calculator",
       description:
         "Industry benchmarks, experience-based pricing, and cost estimation tools",
-      //   icon: <IconCalculator className="h-8 w-8 text-indigo-600" />,
+       icon: <FaCalculator />,
       link: "/rate-calculator",
       color: "bg-indigo-50",
     },
@@ -24,7 +31,7 @@ export function HomePage() {
       title: "Client Management",
       description:
         "Contract templates, invoice tracking, and client communication portal",
-      //   icon: <IconUsers className="h-8 w-8 text-emerald-600" />,
+       icon: <FaUsers />,
       link: "/client-management",
       color: "bg-emerald-50",
     },
@@ -32,7 +39,7 @@ export function HomePage() {
       title: "Professional Development",
       description:
         "Skill development, networking, and industry-specific career resources",
-      //   icon: <IconBook className="h-8 w-8 text-amber-600" />,
+      icon: <FaBook />,
       link: "/professional-development",
       color: "bg-amber-50",
     },
@@ -40,7 +47,7 @@ export function HomePage() {
       title: "Project Tracker",
       description:
         "Real-time updates, milestone tracking, and deadline management",
-      //   icon: <IconChartBar className="h-8 w-8 text-rose-600" />,
+       icon: <IoBarChartSharp />,
       link: "/project-tracker",
       color: "bg-rose-50",
     },
@@ -114,7 +121,7 @@ export function HomePage() {
                   <p className="text-gray-600 mb-4">{feature.description}</p>
                   <div className="flex items-center text-indigo-600 font-medium">
                     <span>Learn more</span>
-                    {/* <IconArrowRight className="ml-2 h-4 w-4" /> */}
+                    <FaLongArrowAltRight />
                   </div>
                 </div>
               </Link>
@@ -174,7 +181,7 @@ export function HomePage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-100 border-t border-gray-200">
+      {/* <footer className="bg-gray-100 border-t border-gray-200">
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
@@ -209,7 +216,7 @@ export function HomePage() {
             reserved.
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }
