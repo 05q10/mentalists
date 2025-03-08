@@ -9,7 +9,8 @@ import Rate from './pages/Rate';
 import Proposal from './pages/Proposal';
 import Landing from './pages/Landing';
 import PaymentDashboard from './pages/PaymentDashboard';
-import Financial from './pages/Financial';
+import Header from './pages/Header';
+import Footer from './pages/Footer';
 import Money from './pages/Money';
 import User from './pages/User';
 import Community from './pages/Community';
@@ -35,6 +36,8 @@ const RoutesWeb = () => {
   return (
       <>
       {/* {loading && <Loader />} */}
+      <Money/>
+      <Header/>
       <Routes>
         <Route path="/" element={<Hello />} />
         <Route path="/bye" element={<Bye />} />
@@ -52,7 +55,9 @@ const RoutesWeb = () => {
 
       </Routes>
       {/* {!isAdminRoute && <Footer />}       Conditionally render Footer */}
+      <Footer/>
       </>
+      
   );
 };
 

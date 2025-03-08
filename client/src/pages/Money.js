@@ -64,7 +64,7 @@ const Money = () => {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg min-h-20">
       <div className="flex w-full max-w-md mx-auto">
         {tabs.map((tab) => (
           <button
