@@ -16,6 +16,7 @@ import User from "./pages/User";
 import Community from "./pages/Community";
 import Info from "./pages/Info";
 import HomePage from "./pages/Home";
+import ScrollToTop from "./pages/ScrollToTop";
 function App() {
   return (
     <>
@@ -35,6 +36,7 @@ const RoutesWeb = () => {
       {/* {loading && <Loader />} */}
       {!hideLayout && <Money />}
       {!hideLayout && <Header />}
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Hello />} />
