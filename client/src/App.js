@@ -14,7 +14,8 @@ import Footer from "./pages/Footer";
 import Money from "./pages/Money";
 import User from "./pages/User";
 import Community from "./pages/Community";
-
+import Info from "./pages/Info";
+import HomePage from "./pages/Home";
 function App() {
   return (
     <>
@@ -45,9 +46,10 @@ const RoutesWeb = () => {
         <Route path="/landing" element={<Landing />} />
         <Route path="/payment" element={<PaymentDashboard />} />
         <Route path="/comm" element={<Community />} />
-
+        <Route path="/info" element={<Info />} />
         <Route path="/money" element={<Money />} />
         <Route path="/user" element={<User />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
       {/* {!isAdminRoute && <Footer />}       Conditionally render Footer */}
       {!hideLayout && <Footer />}

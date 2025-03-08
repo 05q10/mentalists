@@ -33,7 +33,7 @@ const Money = () => {
     {
       id: "GigHome",
       label: "GigHome",
-      path: "/comm",
+      path: "/home",
       icon: <MdHome className="h-6 w-6" />,
     },
     {
