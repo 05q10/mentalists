@@ -12,7 +12,7 @@ function Hello() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        hello
+        hello ria
       </motion.div>
             </div>
         </>
