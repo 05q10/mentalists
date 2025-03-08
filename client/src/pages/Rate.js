@@ -193,6 +193,7 @@ const Rate = () => {
     const [isOpen, setIsOpen] = useState(false);
     
     return (
+    
       <div className="relative">
         <button
           type="button"
@@ -228,6 +229,7 @@ const Rate = () => {
   };
 
   return (
+    <div className="bg-white min-h-screen">
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-purple-900 mb-2">AI Rate Calculator</h1>
       <p className="text-gray-600 mb-8">Find the perfect price for your freelance projects with AI-powered rate suggestions</p>
@@ -646,6 +648,7 @@ const Rate = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

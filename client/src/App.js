@@ -9,6 +9,11 @@ import Rate from './pages/Rate';
 import Proposal from './pages/Proposal';
 import Landing from './pages/Landing';
 import PaymentDashboard from './pages/PaymentDashboard';
+import Financial from './pages/Financial';
+import Money from './pages/Money';
+import User from './pages/User';
+import Community from './pages/Community';
+
 
 
 function App() {
@@ -39,7 +44,11 @@ const RoutesWeb = () => {
         <Route path="/rate" element={<Rate/>} />
         <Route path="/landing" element={<Landing/>} />
         <Route path="/payment" element={<PaymentDashboard/>} />
-      
+        <Route path="/comm" element={<Community/>} />
+       
+        <Route path="/money" element={<Money/>} />
+        <Route path="/user" element={<User/>} />
+        
 
       </Routes>
       {/* {!isAdminRoute && <Footer />}       Conditionally render Footer */}
