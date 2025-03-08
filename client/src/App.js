@@ -48,6 +48,7 @@ const RoutesWeb = () => {
         <Route path="/landing" element={<Landing/>} />
         <Route path="/payment" element={<PaymentDashboard/>} />
         <Route path="/comm" element={<Community/>} />
+      
        
         <Route path="/money" element={<Money/>} />
         <Route path="/user" element={<User/>} />
