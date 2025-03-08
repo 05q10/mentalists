@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/mentalists/static/css/main.e0a9ae4e.css",
+    "main.js": "/mentalists/static/js/main.8e3e9123.js",
+    "static/js/453.563ea4ce.chunk.js": "/mentalists/static/js/453.563ea4ce.chunk.js",
+    "static/media/logo.png": "/mentalists/static/media/logo.3922bf7279241fb240ed.png",
+    "static/media/Sacramento-Regular.ttf": "/mentalists/static/media/Sacramento-Regular.5bd7d5208f7a9c18fe22.ttf",
+    "static/media/lang.jpg": "/mentalists/static/media/lang.a2bf4d6db0c43a90cf6d.jpg",
+    "static/media/photo.jpg": "/mentalists/static/media/photo.0cdb851e58222cb2fbda.jpg",
+    "index.html": "/mentalists/index.html",
+    "main.e0a9ae4e.css.map": "/mentalists/static/css/main.e0a9ae4e.css.map",
+    "main.8e3e9123.js.map": "/mentalists/static/js/main.8e3e9123.js.map",
+    "453.563ea4ce.chunk.js.map": "/mentalists/static/js/453.563ea4ce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0a9ae4e.css",
+    "static/js/main.8e3e9123.js"
+  ]
+}
