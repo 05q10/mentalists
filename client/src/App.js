@@ -7,6 +7,8 @@ import Workspace from './pages/WorkSpace';
 import Rate from './pages/Rate';
 //import Financial from './pages/Financial';
 import Proposal from './pages/Proposal';
+import Landing from './pages/Landing';
+import PaymentDashboard from './pages/PaymentDashboard';
 
 
 function App() {
@@ -35,7 +37,10 @@ const RoutesWeb = () => {
         <Route path="/workspace" element={<Workspace/>} />
         <Route path="/proposal" element={<Proposal/>} />
         <Route path="/rate" element={<Rate/>} />
+        <Route path="/landing" element={<Landing/>} />
+        <Route path="/payment" element={<PaymentDashboard/>} />
       
+
       </Routes>
       {/* {!isAdminRoute && <Footer />}       Conditionally render Footer */}
       </>
