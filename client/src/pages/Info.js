@@ -8,7 +8,7 @@ const Info = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Header Section */}
-      <header className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-6 text-center">
+      <header className="bg-gradient-to-r from-purple-700 via-purple-500 to-indigo-500  text-white py-6 text-center">
         <h1 className="text-4xl font-bold">Fashion Trends & Insights</h1>
         <p className="mt-2 text-lg">
           Stay updated with the latest fashion trends and style tips.

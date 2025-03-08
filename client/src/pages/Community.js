@@ -159,7 +159,7 @@ const Community = () => {
                   borderTop: "2px solid #a78bfa",
                   transition: "all 0.3s ease",
                 }}
-                onClick={() => navigateToGig(gig.route)}
+                onClick={() => navigateToGig("/info")}
               >
                 <div className="relative">
                   <img
@@ -196,7 +196,7 @@ const Community = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigateToGig(gig.route);
+                        navigateToGig("/info");
                       }}
                       className="p-2 rounded-full bg-purple-100 hover:bg-purple-200 transition-colors duration-300"
                     >
